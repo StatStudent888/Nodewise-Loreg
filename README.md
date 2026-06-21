@@ -1,16 +1,17 @@
+<a id="readme-top"></a>
+
 <div align="center">
-
-# Nodewise Loreg Reproducibility Materials
-
-This file accompanies the reproducibility materials for the paper:
-**Nodewise Loreg: Nodewise L0 Regression for High-dimensional Sparse Precision Matrix Estimation**
-
+  <h1>Nodewise Loreg Reproducibility Materials</h1>
+  <p>
+    This file accompanies the reproducibility materials for the paper:<br />
+    <strong>''Nodewise Loreg: Nodewise L0 Regression for High-dimensional Sparse Precision Matrix Estimation''</strong>
+  </p>
 </div>
 
 ---
 
-<details>
-  <summary><strong>Table of Contents</strong></summary>
+<details open>
+<summary><strong>Table of Contents</strong></summary>
 
 - [Description of the paper](#description-of-the-paper)
 - [Repository structure](#repository-structure)
@@ -35,9 +36,12 @@ This file accompanies the reproducibility materials for the paper:
 ---
 
 ## Description of the paper
+
 This paper proposes ''Nodewise Loreg'', a nodewise L0-penalized regression method for estimating high-dimensional sparse precision matrices. The method replaces the L1-penalized regressions used in Nodewise Lasso with L0-penalized regressions solved by the SDAR algorithm. The paper studies the theoretical properties of Nodewise Loreg, including convergence rates, support recovery, and asymptotic normality. It also compares Nodewise Loreg with Nodewise Lasso, GLasso, CLIME, MIO, and L0BnB through simulation studies and an analysis of the MDA133 breast cancer gene-expression dataset.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 ## Repository structure
 
@@ -66,7 +70,9 @@ The `reproduce/` folder contains the scripts and data files used to reproduce th
 
 In short, `software/` contains the reusable implementation of the proposed method, whereas `reproduce/` contains the scripts used to reproduce the numerical results in the paper.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 ## Figure and table reproduction map
 
@@ -77,31 +83,38 @@ The scripts should generally be run in the following order:
 
 The following table maps the numerical results in the manuscript and Supplementary Materials to the corresponding scripts.
 
+<details open>
+<summary><strong>Detailed figure and table reproduction map</strong></summary>
+
 | Output in paper | Purpose | Scripts to run | Order / notes |
 |---|---|---|---|
-| Supplementary Tables S.2, S.4, S.13, and S.15 | Matrix norm losses and support recovery metrics under Gaussian design | `reproduce/Gaussian-design/CLIME/One-replication/CLIME.R`, `reproduce/Gaussian-design/GLasso/One-replication/GLasso_Gaussian.R`, `reproduce/Gaussian-design/L0/One-replication/L0_desparsified_unbias_Gaussian_one-two-stage_lfdr.R`,  and `reproduce/Gaussian-design/L1/One-replication/L1_desparsified_Gaussian_one-two-stage_lfdr.R`, followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.3, S.5, S.14, and S.16 | Matrix norm losses and support recovery metrics under sub-Gaussian design | `reproduce/Gaussian-design/CLIME/One-replication/CLIME.R`, `reproduce/Sub-Gaussian-design/GLasso/One-replication/GLasso_subGaussian.R`, `reproduce/Sub-Gaussian-design/L0/One-replication/L0_desparsified_unbias_subGaussian_one-two-stage_lfdr.R`,  and `reproduce/Sub-Gaussian-design/L1/One-replication/L1_desparsified_subGaussian_one-two-stage_lfdr.R`, followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.6--S.8, and S.17--S.19 | Asymptotic normality metrics under Gaussian design | `reproduce/Gaussian-design/L0/One-replication/L0_desparsified_unbias_Gaussian_normality.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_otherp.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_p4000.R`, and `reproduce/Gaussian-design/L1/One-replication/L1_desparsified_Gaussian_normality.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.9--S.11, and S.20--S.22 | Asymptotic normality metrics under sub-Gaussian design | `reproduce/Sub-Gaussian-design/L0/One-replication/L0_desparsified_unbias_subGaussian_normality.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_otherp.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_p4000.R`, and `reproduce/Sub-Gaussian-design/L1/One-replication/L1_desparsified_subGaussian_normality.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.12 and S.23 | Runtime under Gaussian and sub-Gaussian designs | `reproduce/Gaussian-design/CLIME/One-replication/CLIME.R`, `reproduce/Gaussian-design/GLasso/One-replication/GLasso_Gaussian.R`, `reproduce/Sub-Gaussian-design/GLasso/One-replication/GLasso_subGaussian.R`, `reproduce/Gaussian-design/L0/One-replication/L0_time.R`, and `reproduce/Gaussian-design/L1/One-replication/L1_time.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Table S.24 | Iteration metrics under Gaussian design | `reproduce/Gaussian-design/L0/One-replication/L0_Gaussian_NumOfIter.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Table S.25 | Iteration metrics under sub-Gaussian design | `reproduce/Sub-Gaussian-design/L0/One-replication/L0_subGaussian_NumOfIter.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Table S.26 | Runtime for Nodewise Loreg based on MIO and L0BnB under Gaussian and sub-Gaussian designs | `reproduce/Gaussian-design/MIO/One-replication/MIO_Gaussian_time.R`, `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_subGaussian_time.R`, `reproduce/Gaussian-design/BnB/One-replication/BnB_Gaussian.R`, and `reproduce/Sub-Gaussian-design/BnB/One-replication/BnB_subGaussian.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.27 and S.29 | Matrix norm losses and support recovery metrics for Nodewise Loreg based on MIO and L0BnB under Gaussian design | `reproduce/Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_Gaussian_one-two-stage_lfdr.R`,  and `reproduce/Gaussian-design/BnB/One-replication/BnB_Gaussian.R`, followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.28 and S.30 | Matrix norm losses and support recovery metrics for Nodewise Loreg based on MIO and L0BnB under sub-Gaussian design | `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_subGaussian_one-two-stage_lfdr.R`,  and `reproduce/Sub-Gaussian-design/BnB/One-replication/BnB_subGaussian.R`, followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Tables S.31--S.33 | Asymptotic normality metrics for Nodewise Loreg based on MIO under Gaussian and sub-Gaussian designs | `reproduce/Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_Gaussian_normality.R`, and `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_desparsified_subGaussian_normality.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.2, S.4, S.13, and S.15 | Matrix norm losses and support recovery metrics under Gaussian design | `reproduce/Gaussian-design/CLIME/One-replication/CLIME.R`, `reproduce/Gaussian-design/CLIME/Combine/CLIME_combine.R`, `reproduce/Gaussian-design/GLasso/One-replication/GLasso_Gaussian.R`, `reproduce/Gaussian-design/GLasso/Combine/GLasso_Gaussian_combine.R`, `reproduce/Gaussian-design/L0/One-replication/L0_desparsified_unbias_Gaussian_one-two-stage_lfdr.R`, `reproduce/Gaussian-design/L0/Combine/l0_desparsified_unbias_Gaussian_one-two-stage_combine.R`, `reproduce/Gaussian-design/L1/One-replication/L1_desparsified_Gaussian_one-two-stage_lfdr.R`, and `reproduce/Gaussian-design/L1/Combine/l1_desparsified_Gaussian_one-two-stage_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.3, S.5, S.14, and S.16 | Matrix norm losses and support recovery metrics under sub-Gaussian design | `reproduce/Gaussian-design/CLIME/One-replication/CLIME.R`, `reproduce/Gaussian-design/CLIME/Combine/CLIME_combine.R`, `reproduce/Sub-Gaussian-design/GLasso/One-replication/GLasso_subGaussian.R`, `reproduce/Sub-Gaussian-design/GLasso/Combine/GLasso_subGaussian_combine.R`, `reproduce/Sub-Gaussian-design/L0/One-replication/L0_desparsified_unbias_subGaussian_one-two-stage_lfdr.R`, `reproduce/Sub-Gaussian-design/L0/Combine/l0_desparsified_unbias_subGaussian_one-two-stage_combine.R`, `reproduce/Sub-Gaussian-design/L1/One-replication/L1_desparsified_subGaussian_one-two-stage_lfdr.R`, and `reproduce/Sub-Gaussian-design/L1/Combine/l1_desparsified_subGaussian_one-two-stage_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.6--S.8, and S.17--S.19 | Asymptotic normality metrics under Gaussian design | `reproduce/Gaussian-design/L0/One-replication/L0_desparsified_unbias_Gaussian_normality.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_otherp.R`, `reproduce/Gaussian-design/L0/Combine/l0_Gaussian_normality_combine.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_p4000.R`, `reproduce/Gaussian-design/L0/Combine/l0_true_length_combine_for_p4000.R`, `reproduce/Gaussian-design/L1/One-replication/L1_desparsified_Gaussian_normality.R`, and `reproduce/Gaussian-design/L1/Combine/l1_Gaussian_normality_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.9--S.11, and S.20--S.22 | Asymptotic normality metrics under sub-Gaussian design | `reproduce/Sub-Gaussian-design/L0/One-replication/L0_desparsified_unbias_subGaussian_normality.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_otherp.R`, `reproduce/Sub-Gaussian-design/L0/Combine/l0_subGaussian_normality_combine.R`, `reproduce/Gaussian-design/L0/One-replication/L0_true_length_for_p4000.R`, `reproduce/Gaussian-design/L0/Combine/l0_true_length_combine_for_p4000.R`, `reproduce/Sub-Gaussian-design/L1/One-replication/L1_desparsified_subGaussian_normality.R` and `reproduce/Sub-Gaussian-design/L1/Combine/l1_subGaussian_normality_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.12 and S.23 | Runtime under Gaussian and sub-Gaussian designs | `reproduce/Gaussian-design/CLIME/One-replication/CLIME.R`, `reproduce/Gaussian-design/CLIME/Combine/CLIME_combine.R`, `reproduce/Gaussian-design/GLasso/One-replication/GLasso_Gaussian.R`, `reproduce/Gaussian-design/GLasso/Combine/GLasso_Gaussian_combine.R`, `reproduce/Sub-Gaussian-design/GLasso/One-replication/GLasso_subGaussian.R`, `reproduce/Sub-Gaussian-design/GLasso/Combine/GLasso_subGaussian_combine.R`, `reproduce/Gaussian-design/L0/One-replication/L0_time.R`, `reproduce/Gaussian-design/L0/Combine/l0_time_combine.R`, `reproduce/Gaussian-design/L1/One-replication/L1_time.R`, and `reproduce/Gaussian-design/L1/Combine/l1_time_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Table S.24 | Iteration metrics under Gaussian design | `reproduce/Gaussian-design/L0/One-replication/L0_Gaussian_NumOfIter.R` and `reproduce/Gaussian-design/L0/Combine/l0_Gaussian_NumOfIter_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Table S.25 | Iteration metrics under sub-Gaussian design | `reproduce/Sub-Gaussian-design/L0/One-replication/L0_subGaussian_NumOfIter.R` and `reproduce/Sub-Gaussian-design/L0/Combine/l0_subGaussian_NumOfIter_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Table S.26 | Runtime for Nodewise Loreg based on MIO and L0BnB under Gaussian and sub-Gaussian designs | `reproduce/Gaussian-design/MIO/One-replication/MIO_Gaussian_time.R`, `reproduce/Gaussian-design/MIO/Combine/MIO_Gaussian_time_combine.R`, `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_subGaussian_time.R`, `reproduce/Sub-Gaussian-design/MIO/Combine/MIO_subGaussian_time_combine.R`, `reproduce/Gaussian-design/BnB/One-replication/BnB_Gaussian.R`, `reproduce/Gaussian-design/BnB/Combine/BnB_Gaussian_combine.R`, `reproduce/Sub-Gaussian-design/BnB/One-replication/BnB_subGaussian.R`, and `reproduce/Sub-Gaussian-design/BnB/Combine/BnB_subGaussian_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.27 and S.29 | Matrix norm losses and support recovery metrics for Nodewise Loreg based on MIO and L0BnB under Gaussian design | `reproduce/Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_Gaussian_one-two-stage_lfdr.R`, `reproduce/Gaussian-design/MIO/Combine/MIO_desparsified_unbias_Gaussian_one-two-stage_combine.R`, `reproduce/Gaussian-design/BnB/One-replication/BnB_Gaussian.R`, and `reproduce/Gaussian-design/BnB/Combine/BnB_Gaussian_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.28 and S.30 | Matrix norm losses and support recovery metrics for Nodewise Loreg based on MIO and L0BnB under sub-Gaussian design | `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_subGaussian_one-two-stage_lfdr.R`, `reproduce/Sub-Gaussian-design/MIO/Combine/MIO_desparsified_unbias_subGaussian_one-two-stage_combine.R`, `reproduce/Sub-Gaussian-design/BnB/One-replication/BnB_subGaussian.R`, and `reproduce/Sub-Gaussian-design/BnB/Combine/BnB_subGaussian_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Tables S.31--S.33 | Asymptotic normality metrics for Nodewise Loreg based on MIO under Gaussian and sub-Gaussian designs | `reproduce/Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_Gaussian_normality.R`, `reproduce/Gaussian-design/MIO/Combine/MIO_Gaussian_normality_combine.R`, `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_desparsified_subGaussian_normality.R`, and `reproduce/Sub-Gaussian-design/MIO/Combine/MIO_subGaussian_normality_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
 | Supplementary Table S.34 | pCR classification metrics with p=300  | `reproduce/Real_data/Code_for_p300_BH/l0_desparsified_real_data_lfdr.R`, `reproduce/Real_data/Code_for_p300_BH/l0_method3_real_data_lfdr.R`, and `reproduce/Real_data/Code_for_p300_BH/l0_unbias_real_data_lfdr.R` | -- |
 | Supplementary Table S.35 | pCR classification metrics with p=1400  | `reproduce/Real_data/Code_for_p1400_AdaptZ/l0_desparsified_real_data_p1400.R`, `reproduce/Real_data/Code_for_p1400_AdaptZ/l0_method3_real_data_p1400.R`, and `reproduce/Real_data/Code_for_p1400_AdaptZ/l0_unbias_real_data_p1400.R` | -- |
-| Supplementary Figures S.1--S.4 and S.9--S.12 | Z-score histograms for asymptotic normality under Gaussian design | `reproduce/Gaussian-design/L0/One-replication/L0_desparsified_unbias_Gaussian_normalplot.R`, and `reproduce/Gaussian-design/L1/One-replication/L1_desparsified_Gaussian_normalplot.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Figures S.5--S.8 and S.13--S.16 | Z-score histograms for asymptotic normality under sub-Gaussian design | `reproduce/Sub-Gaussian-design/L0/One-replication/L0_desparsified_unbias_subGaussian_normalplot.R`, and `reproduce/Sub-Gaussian-design/L1/One-replication/L1_desparsified_subGaussian_normalplot.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Figures S.17--S.20 | Z-score histograms for asymptotic normality for Nodewise Loreg based on MIO under Gaussian design | `reproduce/Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_Gaussian_normalplot.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
-| Supplementary Figures S.21--S.24 | Z-score histograms for asymptotic normality for Nodewise Loreg based on MIO under sub-Gaussian design | `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_subGaussian_normalplot.R` followed by the corresponding combine scripts | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Figures S.1--S.4 and S.9--S.12 | Z-score histograms for asymptotic normality under Gaussian design | `reproduce/Gaussian-design/L0/One-replication/L0_desparsified_unbias_Gaussian_normalplot.R`, `reproduce/Gaussian-design/L0/Combine/l0_desparsified_unbias_Gaussian_normalplot_combine.R`, `reproduce/Gaussian-design/L1/One-replication/L1_desparsified_Gaussian_normalplot.R`, and `reproduce/Gaussian-design/L1/Combine/l1_desparsified_Gaussian_normalplot_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Figures S.5--S.8 and S.13--S.16 | Z-score histograms for asymptotic normality under sub-Gaussian design | `reproduce/Sub-Gaussian-design/L0/One-replication/L0_desparsified_unbias_subGaussian_normalplot.R`, `reproduce/Sub-Gaussian-design/L0/Combine/l0_desparsified_unbias_subGaussian_normalplot_combine.R`, `reproduce/Sub-Gaussian-design/L1/One-replication/L1_desparsified_subGaussian_normalplot.R`, and `reproduce/Sub-Gaussian-design/L1/Combine/l1_desparsified_subGaussian_normalplot_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Figures S.17--S.20 | Z-score histograms for asymptotic normality for Nodewise Loreg based on MIO under Gaussian design | `reproduce/Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_Gaussian_normalplot.R` and `reproduce/Gaussian-design/MIO/Combine/MIO_desparsified_unbias_Gaussian_normalplot_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
+| Supplementary Figures S.21--S.24 | Z-score histograms for asymptotic normality for Nodewise Loreg based on MIO under sub-Gaussian design | `reproduce/Sub-Gaussian-design/MIO/One-replication/MIO_desparsified_unbias_subGaussian_normalplot.R` and `reproduce/Sub-Gaussian-design/MIO/Combine/MIO_desparsified_unbias_subGaussian_normalplot_combine.R` | Run `One-replication` scripts first; then run `Combine` scripts |
 | Supplementary Figure S.25 | Venn diagrams with p=300  | `reproduce/Real_data/Code_for_p300_BH/Gene_analysis_and_VennDiagram.R` | -- |
 | Supplementary Figure S.26 | Network graphs with p=300  | `reproduce/Real_data/Code_for_p300_BH/l0_unbias_real_data_network-graph.R` | -- |
 | Supplementary Figure S.27 | Venn diagrams with p=1400  | `reproduce/Real_data/Code_for_p1400_AdaptZ/VennDiagram.R` | -- |
 | Supplementary Figure S.28 | Network graphs with p=1400  | `reproduce/Real_data/Code_for_p1400_AdaptZ/l0_unbias_real_data_network-graph_p1400.R` | -- |
 
+</details>
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
 
 ## Requirements
 
@@ -146,7 +159,9 @@ The following Python packages are required:
 | numpy | 1.23.0 |
 | gurobipy | 12.0.1 |
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 ## Data access
 
@@ -179,7 +194,9 @@ The processed data files are stored in `reproduce/Real_data/Genetic_data_process
 
 - `RD_Test_log2_genedata_lfdr1400.csv`: log-transformed expression data for the RD/non-pCR patients, restricted to the same 1400 selected gene probesets. This file is used together with `PCR_Test_log2_genedata_lfdr1400.csv` in the supplementary ultra-high-dimensional real-data analysis with p=1400.
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+---
 
 ## Approximate runtime
 
@@ -221,3 +238,5 @@ The scripts in `reproduce/Real_data/Code_for_p1400_AdaptZ/` reproduce the supple
 The MIO-based and L0BnB-based comparison scripts are computationally intensive and are not recommended as a first test run. As reported in Supplementary Section S.4.7.2 of the paper, for the setting (n,p)=(200,200) with M=100 replications, the MIO-based and L0BnB-based Nodewise Loreg methods require approximately 43,700--46,900 seconds and 6,500--9,000 seconds, respectively. These runtimes are orders of magnitude longer than the SDAR-based Nodewise Loreg implementation.
 
 Therefore, users are encouraged to first run the SDAR-based example and main simulation scripts. The MIO-based and L0BnB-based scripts should be run only when the user specifically wants to reproduce the computational comparison results.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
