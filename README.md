@@ -4,7 +4,7 @@
   <h1>Nodewise Loreg Reproducibility Materials</h1>
   <p>
     This file accompanies the reproducibility materials for the paper:<br />
-    <strong>''Nodewise Loreg: Nodewise L_0 Regression for High-dimensional Sparse Precision Matrix Estimation''</strong>
+    <strong>''Nodewise Loreg: Nodewise L0 Regression for High-dimensional Sparse Precision Matrix Estimation''</strong>
   </p>
 </div>
 
