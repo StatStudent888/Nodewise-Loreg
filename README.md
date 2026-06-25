@@ -200,7 +200,7 @@ The processed data files are stored in `reproduce/Real_data/Genetic_data_process
 
 ## Approximate runtime
 
-The expected runtime depends on the dimension, sample size, number of simulation replications, and the method being run. The following rough runtime guidance is provided to help users plan reproducibility runs.
+The following rough runtime guidance is provided to help users plan reproducibility runs.
 
 ### Quick example
 
@@ -208,7 +208,7 @@ The example script in `software/Example/Test.R` is intended as a quick demonstra
 
 ### Main SDAR-based Nodewise Loreg simulations
 
-The main simulation scripts based on the SDAR implementation of Nodewise Loreg are substantially faster than the MIO-based and L0BnB-based implementations. The expected runtime depends on the dimension \(p\), sample size \(n\), graph structure, number of replications, and whether the user reproduces only the numerical summaries or also the normal-plot figures.
+The expected runtime depends on the dimension \(p\), sample size \(n\), graph structure, and whether the user reproduces only the numerical summaries or also the normal-plot figures.
 
 For one simulation setting, the approximate runtimes are as follows.
 
@@ -217,25 +217,23 @@ For one simulation setting, the approximate runtimes are as follows.
 | p=200 | Matrix norm losses and support recovery metrics | 30 minutes--1 hour |
 | p=200 | Asymptotic-normality metrics or normal plots | 30 minutes--2 hours |
 | p=400 | Matrix norm losses and support recovery metrics | 1--3 hours |
-| p=400 | Asymptotic-normality metrics or normal plots | 1--6 hours |
+| p=400 | Asymptotic-normality metrics or normal plots | 1--5 hours |
 | p=1000 | Matrix norm losses and support recovery metrics | 4--8 hours |
 | p=1000 | Asymptotic-normality metrics or normal plots | 4-->8 hours |
 | p=4000 | Matrix norm losses and support recovery metrics | >8 hours |
 | p=4000 | Asymptotic-normality metrics or normal plots | >8 hours |
 
-Here, one setting refers to one fixed combination of dimension, sample size, graph structure, and simulation design. The full simulation study reported in the manuscript and Supplementary Materials contains many such settings, including multiple graph structures, dimensions, sample sizes, and replications. Therefore, reproducing the full set of simulation results from scratch can take substantially longer than the runtime for a single setting.
+Here, one setting refers to one fixed combination of dimension, sample size, graph structure, and simulation design. The full simulation study reported in the manuscript and Supplementary Materials contains many such settings, including multiple graph structures, dimensions, and sample sizes. Therefore, reproducing the full set of simulation results from scratch can take substantially longer than the runtime for a single setting.
 
 Users who only want to check that the code runs correctly should first run the quick example in `software/Example/Test.R`, or reduce the number of replications in the simulation scripts before running the full experiments.
 
 ### Real-data analysis
 
-The real-data analysis scripts in `reproduce/Real_data/Code_for_p300_BH/` reproduce the main MDA133 analysis with p=300 selected gene probesets. These scripts are expected to take <8 hours.
+The real-data analysis scripts in `reproduce/Real_data/Code_for_p300_BH/` reproduce the main MDA133 analysis with p=300 selected gene probesets. These scripts are expected to take about 2-4 hours.
 
 The scripts in `reproduce/Real_data/Code_for_p1400_AdaptZ/` reproduce the supplementary MDA133 analysis with p=1400 selected gene probesets. These scripts are expected to take >8 hours.
 
-### MIO-based and L0BnB-based comparison
 
-The MIO-based and L0BnB-based comparison scripts are computationally intensive and are not recommended as a first test run. As reported in Supplementary Section S.4.7.2 of the paper, for the setting (n,p)=(200,200) with M=100 replications, the MIO-based and L0BnB-based Nodewise Loreg methods require approximately 43,700--46,900 seconds and 6,500--9,000 seconds, respectively. These runtimes are orders of magnitude longer than the SDAR-based Nodewise Loreg implementation.
 
 Therefore, users are encouraged to first run the SDAR-based example and main simulation scripts. The MIO-based and L0BnB-based scripts should be run only when the user specifically wants to reproduce the computational comparison results.
 
