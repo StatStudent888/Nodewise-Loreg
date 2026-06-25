@@ -235,6 +235,4 @@ The scripts in `reproduce/Real_data/Code_for_p1400_AdaptZ/` reproduce the supple
 
 
 
-Therefore, users are encouraged to first run the SDAR-based example and main simulation scripts. The MIO-based and L0BnB-based scripts should be run only when the user specifically wants to reproduce the computational comparison results.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
