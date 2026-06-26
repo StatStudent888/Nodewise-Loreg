@@ -208,7 +208,7 @@ The example script in `software/Example/Test.R` is intended as a quick demonstra
 
 ### Main SDAR-based Nodewise Loreg simulations
 
-The expected runtime depends on the dimension \(p\), sample size \(n\), and whether the user reproduces only the numerical summaries or also the normal-plot figures.
+The expected runtime mainly depends on the dimension \(p\), and whether the user reproduces only the numerical summaries or also the normal-plot figures.
 
 For one simulation setting, the approximate runtimes are as follows.
 
