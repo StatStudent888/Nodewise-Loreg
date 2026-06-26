@@ -223,7 +223,7 @@ For one simulation setting, the approximate runtimes are as follows.
 | p=4000 | Matrix norm losses and support recovery metrics | >8 hours |
 | p=4000 | Asymptotic-normality metrics or normal plots | >8 hours |
 
-Here, one setting refers to one fixed combination of dimension, sample size, graph structure, and simulation design. The full simulation study reported in the manuscript and Supplementary Materials contains many such settings, including multiple graph structures, dimensions, and sample sizes. Therefore, reproducing the full set of simulation results from scratch can take substantially longer than the runtime for a single setting.
+Here, one setting refers to one fixed combination of dimension, sample size, graph structure, and simulation design, with results aggregated over all replications. The full simulation study reported in the manuscript and Supplementary Materials contains many such settings, including multiple graph structures, dimensions, and sample sizes. Therefore, reproducing the full set of simulation results from scratch can take substantially longer than the runtime for a single setting.
 
 Users who only want to check that the code runs correctly should first run the quick example in `software/Example/Test.R`, or reduce the number of replications in the simulation scripts before running the full experiments.
 
