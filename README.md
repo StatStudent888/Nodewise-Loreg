@@ -76,8 +76,6 @@ In short, `software/` contains the reusable implementation of the proposed metho
 
 ## Figure and table reproduction map
 
-This map follows the numbering in the revised Supplementary Materials. Section S.4.6 and Tables S.24--S.25 concern positive definiteness; Section S.4.7 and Tables S.26--S.27 concern SDAR convergence; Section S.4.8, Tables S.28--S.35, and Figures S.17--S.24 concern the alternative MIO-based implementations. Figure numbers S.1--S.28 are unchanged.
-
 For simulations, run the replication-level (`One-replication`) scripts before the corresponding aggregation (`Combine`) scripts. The numerical simulation tables use 100 replications; the Z-score histograms use 400 replications. Select the sample size, dimension, graph structure, and distribution corresponding to the required output.
 
 <details open>
